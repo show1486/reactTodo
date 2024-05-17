@@ -17,7 +17,7 @@ const TodoForm = ({setTodos}) => {
     isDone:false,
   } 
   
-  setTodos((prevTodos)=>[nextTodo , ...prevTodos])
+  setTodos((prev)=>[nextTodo , ...prev])
   console.log(title, content)
   e.target.reset();
 }

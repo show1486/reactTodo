@@ -1,12 +1,12 @@
 import React from 'react'
 
 const TodoItem = ({todo, setTodos}) => {
-  const [id,title,content] = todo;
+  const {id,title,content, isDone} = todo;
   const deleteTodo = ()=>{
     setTodos((prev) => prev.filter(todo => todo.id !== id))
   }
 const toggleTodo = ()=>{
-  setTodos((prev)=>prev.map(todo=>todo.id === id ? {...todo, isDone: !todo.isDone} : todo))
+  setTodos((prev)=>prev.map(todo => todo.id === id ? {...todo, isDone: !todo.isDone} : todo))
 }
   return (
     <div className='todo-card'>
@@ -14,7 +14,7 @@ const toggleTodo = ()=>{
       <p>{content}</p>
     
     <div>
-      <button onClick={toggleTodo}>완료</button>
+      <button onClick={toggleTodo}>{isDone ? "취소" : "완료"}</button>
       <button onClick={deleteTodo}>삭제</button>
     </div>
     </div>

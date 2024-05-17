@@ -10,16 +10,24 @@ const TodoContainer = () => {
       content: "할 일1 내용",
       isDone: false,
     },
+    {
+      id:2,
+      title: "할 일 2",
+      content:"할 일 2 내용",
+      isDone: true,
+    },
   ]);
-  
+      const workingTodos = todos.filter((todo)=> !todo.isDone) 
+      const doneTodos = todos.filter((todo)=> todo.isDone)
+
   return (
-    <div>
+    <section>
+      <h1 className='title'>Todo List</h1>
       <TodoForm  setTodos={setTodos}/>
-      <div>
-        <TodoList />
-        <TodoList />
-      </div>
-    </div>
+      <TodoList  title="Working" todos={workingTodos} />
+      <TodoList  title="Done" todos={doneTodos}/>
+      
+    </section>
   )
 }
 
